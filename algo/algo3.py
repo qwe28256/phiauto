@@ -344,7 +344,9 @@ class PointerAllocator:
 
 
 def solve(chart: Chart, _: AlgorithmConfigure, console: Console) -> tuple[ScreenUtil, RawAnswerType]:
-    flick_duration = 3
+    flick_start = -30
+    flick_end = 30
+    flick_duration = flick_end - flick_start
     flick_direction = 0
     screen = ScreenUtil(chart.width, chart.height)
     cghelper = CompGeoHelper(chart.width, chart.height)
@@ -403,14 +405,13 @@ def solve(chart: Chart, _: AlgorithmConfigure, console: Console) -> tuple[Screen
                         frames[offset].drags.append(PlainNote(offset, position, rotation, judge_area))
                 case _:
                     plain_note = PlainNote(timestamp, position, rotation, judge_area)
-                    frame = frames[timestamp]
                     match note.type:
                         case NoteType.FLICK:
-                            frame.flicks.append(plain_note)
+                            frames[timestamp + flick_start].flicks.append(plain_note)
                         case NoteType.TAP:
-                            frame.taps.append(plain_note)
+                            frames[timestamp].taps.append(plain_note)
                         case NoteType.DRAG:
-                            frame.drags.append(plain_note)
+                            frames[timestamp].drags.append(plain_note)
 
     console.print(f'统计完毕，当前谱面共计{len(frames)}帧')
 
