@@ -98,7 +98,7 @@ _phisap的图标由[@ShintoKosei](https://github.com/ShintoKosei)制作，授权
      - 大小约为 1.3GB
      - 使用`adb pull`或者文件管理器直接复制出来即可
    - 当然，如果你不想手动提取，也可以直接去网上下载一个 phigros 的安装包或数据包，注意版本对应即可
-4. 准备服务端。请去[scrcpy 的 releases 页面](https://github.com/Genymobile/scrcpy/releases) 下载`scrcpy-server-v2.0`，不要下载成别的版本。下载完成后，请将文件直接放置在 phisap 的根目录（与`main.py`之类的文件在同一文件夹即可），不要更改文件的名称（比如添加后缀），否则 phisap 将无法识别
+4. 准备服务端。请去[scrcpy 的 releases 页面](https://github.com/Genymobile/scrcpy/releases) 下载服务端最新版（类似`scrcpy-server-v2.6.1）。下载完成后，请将文件直接放置在 phisap 的根目录（与`main.py`之类的文件在同一文件夹即可），不要更改文件的名称（比如添加后缀），否则 phisap 将无法识别
    - 如果你使用\*nix 系统，且安装有 wget，那么下面的命令与上面描述的操作等效:
      ```bash
      cd phisap  # 定位到phisap的根目录下

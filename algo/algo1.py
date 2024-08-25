@@ -298,14 +298,7 @@ def solve(chart: Chart, config: AlgorithmConfigure, console: Console) -> tuple[S
                     )
             current_note_id += 1
 
-    pointers_count = max(len(frame) for _, frame in frames.items())
-    if pointers_count > 10:
-        console.print('[red]规划失败，请使用激进算法[/red]')
-        raise RuntimeError('planning failed')
-    else:
-        console.print(f'统计完毕，当前谱面共计{len(frames)}帧，最多需要{pointers_count}押')
-
-    pointers = PointerManager(range(1000, 1000 + pointers_count))  # 几押就需要几个pointer
+    pointers = PointerManager(range(1000, 1000 + 10))  # 几押就需要几个pointer有时并不准确
 
     # 规划结果
     result: defaultdict[int, list[VirtualTouchEvent]] = defaultdict(list)
